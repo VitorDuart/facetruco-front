@@ -2,26 +2,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
       <title>FaceTruco</title>
+      <h:outputStylesheet library="css" name="login.css" />
 </h:head>
 <h:body>
     <div>
-        <h3>FaceTruco</h3>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Asperiores, consectetur. Veniam deleniti labore officia mollitia! Veniam quos, 
-            quibusdam odit, enim voluptatum dolor quam culpa est quasi minus facilis laborum magni.
-        </p>
-    </div>
-    <div>
-        <h:form>
-            <h3>Read-Only input text box</h3>
-            <h:inputText value = "Hello World!" readonly = "true"/>
-            <h3>Read-Only input text box</h3>
-            <h:inputText value = "Hello World"/>
-        </h:form>
+        <div class="box">
+            <h3>FaceTruco</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Asperiores, consectetur. Veniam deleniti labore officia mollitia! Veniam quos, 
+                quibusdam odit, enim voluptatum dolor quam culpa est quasi minus facilis laborum magni.
+            </p>
+        </div>
+        <div class="box">
+            <h:form>
+                <h:inputText  value="#{loginBean.log.email}"> 
+                    <f:passThroughAttribute name="placeholder" 
+                        value="Email ou telefone" /> 
+                </h:inputText>
+                <h:inputSecret value="#{loginBean.log.password}">
+                        <f:passThroughAttribute name="placeholder" 
+                        value="Senha" />
+                </h:inputSecret>
+                <h:commandButton value="Entrar" action="#{loginBean.loginho}" />
+            </h:form>
+            
+            <h:link value="Esqueceu a senha?" outcome="recover"/>
+            
+            -------------------ou-----------------------
+            <h:form > <h:commandButton value="Criar nova conta"/> </h:form>
+
+            <h:link value="Criar uma página" outcome="page"/> para uma celebridade, banda ou empresa.
+        </div>
     </div>
 </h:body>
 </html>
