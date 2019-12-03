@@ -9,34 +9,36 @@
       <h:outputStylesheet library="css" name="login.css" />
 </h:head>
 <h:body>
-    <div>
-        <div class="box">
-            <h3>FaceTruco</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Asperiores, consectetur. Veniam deleniti labore officia mollitia! Veniam quos, 
-                quibusdam odit, enim voluptatum dolor quam culpa est quasi minus facilis laborum magni.
-            </p>
-        </div>
-        <div class="box">
-            <h:form>
-                <h:inputText  value="#{loginBean.log.email}"> 
-                    <f:passThroughAttribute name="placeholder" 
-                        value="Email ou telefone" /> 
-                </h:inputText>
-                <h:inputSecret value="#{loginBean.log.password}">
+    <div id="box">
+        <div class="container">
+            <div id="child1"> 
+                <h:graphicImage id="face" library="images" name="facebook.svg" />
+                <p id="refe">
+                    O Facebook ajuda você a se conectar e compartilhar 
+                    com as pessoas que fazem parte da sua vida.
+                </p>
+            </div>
+            <div id="child2" class="container-vertical">
+                <h:form class="container-vertical">
+                    <h:inputText class="input" value="#{loginBean.log.email}"> 
                         <f:passThroughAttribute name="placeholder" 
-                        value="Senha" />
-                </h:inputSecret>
-                <h:commandButton value="Entrar" action="#{loginBean.loginho}" />
-            </h:form>
-            
-            <h:link value="Esqueceu a senha?" outcome="recover"/>
-            
-            -------------------ou-----------------------
-            <h:form > <h:commandButton value="Criar nova conta"/> </h:form>
+                            value="Email ou telefone" /> 
+                    </h:inputText>
+                    <h:inputSecret class="input" value="#{loginBean.log.password}">
+                            <f:passThroughAttribute name="placeholder" 
+                            value="Senha" />
+                    </h:inputSecret>
+                    <h:commandButton class="button-entrar" value="Entrar" action="#{loginBean.loginho}" />
+                </h:form>
+                
+                <h:link class="centraliza" id="link-e" value="Esqueceu a senha?" outcome="recover"/>
+                
+                <p class="centraliza">OU</p>
 
-            <h:link value="Criar uma página" outcome="page"/> para uma celebridade, banda ou empresa.
+                <h:form class="centraliza"> <h:commandButton class="button" value="Criar nova conta" /> </h:form>
+
+                <p class="centraliza" ><h:link id="link-p" value="Criar uma página" outcome="page"/> para uma celebridade, banda ou empresa.</p>
+            </div>
         </div>
     </div>
 </h:body>
