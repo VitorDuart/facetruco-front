@@ -84,9 +84,21 @@
     font-weight: bold;
 }
 
+.button-entrar:hover{
+    background-color: #0c59bd;
+    cursor: pointer;
+}
+
+.button-entrar:focus{
+    outline:0; 
+    outline:none; 
+    outline-offset:0; 
+    outline-offset:none; 
+}
+
 /*button criar nova conta*/
 .button {
-    width: 154px;
+    width: 160px;
     height: 52px;
     margin: auto;
     border: 1px solid gainsboro;
@@ -95,6 +107,18 @@
     background-color: #42b72a;
     color:white;
     font-weight: bold;
+}
+
+.button:focus{
+    outline:0; 
+    outline:none; 
+    outline-offset:0; 
+    outline-offset:none; 
+}
+
+.button:hover{
+    background-color: #369923;
+    cursor: pointer;
 }
 
 .centraliza{
@@ -125,10 +149,10 @@
 
 .container-cadastro{
     display: none;
-    width: 432px;
-    height: 480px;
+    width: 420px;
+    height: 500px;
     position: fixed;
-    top: 90px;
+    top: 75px;
     left: 450px;
     z-index: 25;
 
@@ -144,16 +168,40 @@
     margin-bottom: 10px;
 }
 
+.container-close{
+    display: flex;
+}
+
 #titulo{
     font: 32px SFProDisplay-Bold, Helvetica, Arial, sans-serif;
     color: #1C1E21;
-    margin: 5px 0;
+    margin: 5px 0px;
+}
+
+.button-close{
+    margin-left: 215px;
+    border: none;
+    background-color: transparent;
+    font-weight: bold;
+    color: black;
+    font-size: 22px;   
+}
+
+.button-close:focus{
+    outline:0; 
+    outline:none; 
+    outline-offset:0; 
+    outline-offset:none; 
+}
+
+.button-close:hover{
+    color: rgb(87, 85, 85);
 }
 
 #motiv{
     font: 15px SFProDisplay-Bold, Helvetica, Arial, sans-serif;
     color: #606770;
-    margin: 5px 0;
+    margin-top: 1px;
     
 }
 
@@ -170,7 +218,7 @@
 }
 
 .input-nome-sobrenome{
-    width: 195px;
+    width: 185px;
     height: 38px;
     border: 1px solid gainsboro;
     border-radius: 5px;
@@ -242,6 +290,11 @@
     border-radius: 5px;
     font-weight: bold;
     font-size: 18px;
+}
+
+.button-cadastro:hover{
+    background-color: #369923;
+    cursor: pointer;
 }
 
 

@@ -1,8 +1,7 @@
-function openForm() {
+function openCadastro() {
     document.getElementById("myForm").style.display = "block";
-    console.log("entrou");
 }
 
-function closeForm() {
+function closeCadastro() {
     document.getElementById("myForm").style.display = "none";
 }

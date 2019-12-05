@@ -36,7 +36,7 @@
                 <p class="centraliza">OU</p>
 
                 <div class="centraliza"> 
-                    <button class="button" type="submit" onclick="openForm()" >Criar nova conta</button>
+                    <button class="button" type="submit" onclick="openCadastro()" >Criar nova conta</button>
                 </div>   
 
                 <p class="centraliza" ><h:link id="link-p" value="Criar uma página" outcome="page"/> para uma celebridade, banda ou empresa.</p>
@@ -45,7 +45,10 @@
 
         <div class="container-cadastro" id="myForm">
             <div class="container-tit-cad">
-                <h1 id="titulo">Cadastra-se</h1>
+                <div class="container-close">
+                    <h1 id="titulo">Cadastra-se</h1>
+                    <button class="button-close" onclick="closeCadastro()">X</button>
+                </div>
                 <p id="motiv">É rápido e fácil</p>
             </div>
             
