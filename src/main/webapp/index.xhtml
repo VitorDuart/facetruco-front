@@ -3,115 +3,39 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:comp="http://xmlns.jcp.org/jsf/composite/components">
 <h:head>
       <title>FaceTruco</title>
+      <h:outputStylesheet library="css" name="index.css" />
       <h:outputStylesheet library="css" name="login.css" />
+      <h:outputStylesheet library="css" name="cadastro.css" />
 </h:head>
 <h:body>
-    <div id="box">
-        <div class="container">
-            <div id="child1"> 
-                <h:graphicImage id="face" library="images" name="facebook.svg" />
-                <p id="refe">
+    <div class="container-index">
+        <div class="container-content">
+
+            <div class="container-logo-frase"> 
+                <h:graphicImage class="img-face" library="images" name="facebook.svg" />
+                <p class="p-institucional">
                     O Facebook ajuda você a se conectar e compartilhar 
                     com as pessoas que fazem parte da sua vida.
                 </p>
             </div>
-            <div id="child2" class="container-vertical">
-                <h:form class="container-vertical">
-                    <h:inputText class="input" value="#{loginBean.log.email}"> 
-                        <f:passThroughAttribute name="placeholder" 
-                            value="Email ou telefone" /> 
-                    </h:inputText>
-                    <h:inputSecret class="input" value="#{loginBean.log.password}">
-                            <f:passThroughAttribute name="placeholder" 
-                            value="Senha" />
-                    </h:inputSecret>
-                    <h:commandButton class="button-entrar" value="Entrar" action="#{loginBean.loginho}" />
-                </h:form>
-                
-                <h:link class="centraliza" id="link-e" value="Esqueceu a senha?" outcome="recover"/>
-                
-                <p class="centraliza">OU</p>
 
-                <div class="centraliza"> 
-                    <button class="button" type="submit" onclick="openCadastro()" >Criar nova conta</button>
-                </div>   
-
-                <p class="centraliza" ><h:link id="link-p" value="Criar uma página" outcome="page"/> para uma celebridade, banda ou empresa.</p>
-            </div>
-        </div>
-
-        <div class="container-cadastro" id="myForm">
-            <div class="container-tit-cad">
-                <div class="container-close">
-                    <h1 id="titulo">Cadastra-se</h1>
-                    <button class="button-close" onclick="closeCadastro()">X</button>
-                </div>
-                <p id="motiv">É rápido e fácil</p>
-            </div>
+            <comp:login class="container-login" /> 
             
-            <h:form class="form-cadastro">
-                <div class="nome-sobrenome">
-                    <h:inputText class="input-nome-sobrenome" value="">
-                            <f:passThroughAttribute name="placeholder"
-                                value="Nome" />
-                    </h:inputText>
-                    <h:inputText class="input-nome-sobrenome" value="">
-                        <f:passThroughAttribute name="placeholder"
-                            value="Sobrenome" />
-                    </h:inputText>
-                </div>
-                  
-                <h:inputText class="input-email-senha" value="">
-                    <f:passThroughAttribute name="placeholder"
-                        value="Celular ou email" />
-                </h:inputText>
-                <h:inputSecret class="input-email-senha" value="">
-                            <f:passThroughAttribute name="placeholder" 
-                            value="Nova senha" />
-                </h:inputSecret>
-
-                <p id="nasc" >Data de nascimento</p>
-                <div class="date">
-                    <h:selectOneMenu class="select-date" value="">
-                        <f:selectItem itemValue="1" />
-                        <f:selectItem itemValue="2" />
-                        <f:selectItem itemValue="3" />
-                    </h:selectOneMenu>
-                    <h:selectOneMenu class="select-date" value="">
-                        <f:selectItem itemValue="Jan" />
-                        <f:selectItem itemValue="Fev" />
-                        <f:selectItem itemValue="Mar" />
-                    </h:selectOneMenu>
-                    <h:selectOneMenu class="select-date" value="">
-                        <f:selectItem itemValue="2017" />
-                        <f:selectItem itemValue="2018" />
-                        <f:selectItem itemValue="2019" />
-                    </h:selectOneMenu>
-                </div>
-                <p id="genero" >Gênero</p>
-                <div class="container-genero">
-                    <h:selectOneRadio class="radio" value="#{login.log.email}">
-                        <f:selectItem  itemValue="Feminino" itemLabel="Feminino" />
-                 </h:selectOneRadio>
-
-                 <h:selectOneRadio class="radio" value="#{login.log.email}">
-                        <f:selectItem  itemValue="Masculino" itemLabel="Masculino" />
-                 </h:selectOneRadio>
-                </div>
-
-                <p id="terms">
-                    Ao clicar em Cadastre-se, você concorda com nossos Termos, 
-                    Política de Dados e Política de Cookies. Você pode receber 
-                    notificações por SMS e pode cancelar isso quando quiser.
-                </p>
-
-                <h:commandButton class="button-cadastro" value="Cadastra-se"  />
-            </h:form>
         </div>
+
+        <div id="myForm" class="form">
+            <div class="container-cadastro">
+                <comp:cadastro class="container-cadastro-child"/>
+            </div>
+        </div>
+        
+            
     </div>
+
     <h:outputScript library="js" name="cadastro.js" />
 </h:body>
 </html>

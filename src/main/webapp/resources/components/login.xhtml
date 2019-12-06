@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"	
+    xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+<composite:interface></composite:interface>
+<composite:implementation>
+    <div class="container-vertical">
+        <h:form class="container-vertical">
+            <h:inputText class="input" value="#{loginBean.log.email}"> 
+                <f:passThroughAttribute name="placeholder" 
+                    value="Email ou telefone" /> 
+            </h:inputText>
+            <h:inputSecret class="input" value="#{loginBean.log.password}">
+                    <f:passThroughAttribute name="placeholder" 
+                    value="Senha" />
+            </h:inputSecret>
+            <h:commandButton class="button-entrar" value="Entrar" action="#{loginBean.loginho}" />
+        </h:form>
+        
+        <div class="centraliza" >
+            <h:link  class="link-lost" value="Esqueceu a senha?" outcome="recover"/>
+        </div>
+        
+        <p class="centraliza">OU</p>
+
+        <div class="centraliza"> 
+            <button class="button" type="submit" onclick="openCadastro()" >Criar nova conta</button>
+        </div>   
+
+        <p class="centraliza" >
+            <h:link  class="link-new-page" value="Criar uma página" outcome="page"/> 
+            para uma celebridade, banda ou empresa.
+        </p>
+    </div>
+</composite:implementation>
+</html>

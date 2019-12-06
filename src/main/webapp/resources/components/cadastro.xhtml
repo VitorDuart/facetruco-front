@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"	
+    xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+<composite:interface></composite:interface>
+<composite:implementation>
+    <div class="container-card">
+        <div class="container-tit-cad">
+            <div class="container-close">
+                <h1 class="titulo">Cadastra-se</h1>
+                <button class="button-close" onclick="closeCadastro()">X</button>
+            </div>
+            <p class="p-arg">É rápido e fácil</p>
+        </div>
+        
+        <h:form class="form-cadastro">
+            <div class="nome-sobrenome">
+                <h:inputText class="input-nome-sobrenome" value="">
+                        <f:passThroughAttribute name="placeholder"
+                            value="Nome" />
+                </h:inputText>
+                <h:inputText class="input-nome-sobrenome" value="">
+                    <f:passThroughAttribute name="placeholder"
+                        value="Sobrenome" />
+                </h:inputText>
+            </div>
+                
+            <h:inputText class="input-email-senha" value="">
+                <f:passThroughAttribute name="placeholder"
+                    value="Celular ou email" />
+            </h:inputText>
+            <h:inputSecret class="input-email-senha" value="">
+                        <f:passThroughAttribute name="placeholder" 
+                        value="Nova senha" />
+            </h:inputSecret>
+    
+            <p class="p-nasc" >Data de nascimento</p>
+            <div class="date">
+                <h:selectOneMenu class="select-date" value="#{userBean.dia}">
+                    <f:selectItems value="#{userBean.dias}" />
+                </h:selectOneMenu>
+                <h:selectOneMenu class="select-date" value="">
+                    <f:selectItem itemValue="Jan" />
+                    <f:selectItem itemValue="Fev" />
+                    <f:selectItem itemValue="Mar" />
+                </h:selectOneMenu>
+                <h:selectOneMenu class="select-date" value="">
+                    <f:selectItem itemValue="2017" />
+                    <f:selectItem itemValue="2018" />
+                    <f:selectItem itemValue="2019" />
+                </h:selectOneMenu>
+            </div>
+            <p class="p-genero" >Gênero</p>
+            <div class="container-genero">
+                <h:selectOneRadio value="#{login.log.email}">
+                    <div class="container-radio">
+                        <f:selectItem  itemValue="Feminino" itemLabel="Feminino" />
+                    </div>
+                    <div class="container-radio">
+                        <f:selectItem  itemValue="Masculino" itemLabel="Masculino" />
+                    </div>
+                </h:selectOneRadio>
+            </div>
+    
+            <p class="p-terms">
+                Ao clicar em Cadastre-se, você concorda com nossos Termos, 
+                Política de Dados e Política de Cookies. Você pode receber 
+                notificações por SMS e pode cancelar isso quando quiser.
+            </p>
+    
+            <h:commandButton class="button-cadastro" value="Cadastra-se"  />
+        </h:form>
+    </div>
+    
+
+</composite:implementation>
+</html>
