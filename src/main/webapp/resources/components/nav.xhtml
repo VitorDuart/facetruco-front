@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"	
+    xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+<composite:interface></composite:interface>
+<composite:implementation>
+   <div class="container-nav">
+      <h:graphicImage class="img-logo" library="images" name="logo.jpg" />
+      
+      <h:form class="form-search">
+         <h:inputText class="input-search" onclick="mudarCor()" >
+               <f:passThroughAttribute name="placeholder" 
+               value="Pesquisar" />
+         </h:inputText>
+         <h:commandButton id="btnSearch" class="btn-search" image="#{resource['images:search.svg']}" />
+            
+      </h:form>
+      
+      <div class="container-op">
+
+         <h:link class="container-perfil" outcome="perfil">
+            <h:graphicImage class="img-perfil" library="images" name="perfil.jpg" />
+            <h:outputText class="txt-name" value="#{userBean.user.name}" />
+         </h:link>
+
+         <h:link class="link-pg-ini" value="Página Inicial" outcome="feeds" />
+
+         <button class="btn-create" type="button">Criar</button>
+
+         <div class="container-icons" >
+            <h:button class="btn-amizade" image="#{resource['images:sol_amizade.png']}" />
+            <h:button class="btn-messenger" image="#{resource['images:messenger1.png']}" />
+            <h:button class="btn-bell" image="#{resource['images:bell.png']}" />
+         </div>
+      </div>
+   </div>
+</composite:implementation>
+</html>

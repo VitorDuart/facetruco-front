@@ -3,15 +3,28 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:comp="http://xmlns.jcp.org/jsf/composite/components">
 <h:head>
       <title>FaceTruco</title>
+      <h:outputStylesheet library="css" name="nav.css" />
+      <h:outputStylesheet library="css" name="feeds.css" />
 </h:head>
 <h:body>
-    <h3>Feeds!</h3>
-
-    <p>Em construção</p>
-    
+    <nav class="container-bar">
+        <comp:nav />
+    </nav>
+    <div class="container-main">
+        <main class="container-content">
+            <section class="menu">fdfdf</section>
+            <section class="feeds">
+                Feeds
+            </section>
+            <section class="geral">Geral</section>
+        </main>
+        <section id="chat" class="container-chat">Chat</section>        
+    </div>
+    <h:outputScript library="js" name="nave.js" />    
 </h:body>
 </html>
 

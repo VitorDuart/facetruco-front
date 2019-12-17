@@ -114,8 +114,8 @@
     display: flex;
     justify-content: flex-start;
 }
-
-.container-radio{
+/*container para o radio button*/
+td{
     width: 109.94px;
     height: 36px;
     border: 1px solid gainsboro;

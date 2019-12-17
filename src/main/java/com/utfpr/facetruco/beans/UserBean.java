@@ -22,12 +22,7 @@ public class UserBean {
     private List<String> dias;
 
     public UserBean(){
-        this.dias = new ArrayList<>();
-        for(int i=1; i<31; i++){
-            this.dias.add(i-1,i+"");
-        }
-
-        this.dia = this.dias.get(0);
+        
     }
 
 

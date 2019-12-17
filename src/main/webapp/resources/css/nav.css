@@ -1,0 +1,153 @@
+.container-nav{
+    padding-left: 67px;
+    display: flex;
+    align-items: center;
+}
+
+.img-logo{
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.form-search{
+    display: flex;
+    margin-right: 100px;
+}
+
+.input-search{
+    width: 393px;
+    height: 19px;
+    border-left: 1px solid rgb(185, 185, 185);
+    border-top: 1px solid rgb(185, 185, 185);
+    border-bottom: 1px solid rgb(185, 185, 185);
+    border-right:none ;
+    border-radius: 2px;
+    background-color: white;
+
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.input-search:focus{
+    outline:0; 
+    outline:none; 
+    outline-offset:0; 
+    outline-offset:none; 
+}
+
+.btn-search{
+    width: 46px;
+    height: 21px;
+    border-top: 1px solid rgb(185, 185, 185);
+    border-right: 1px solid rgb(185, 185, 185);
+    border-bottom: 1px solid rgb(185, 185, 185);
+    border-left: none;
+    border-radius: 2px;
+    background-color: #f5f6f7;
+    margin-left: -2px;
+}
+
+.btn-search{
+    outline:0; 
+    outline:none; 
+    outline-offset:0; 
+    outline-offset:none;
+}
+
+.btn-search:hover{
+    background-color:  #e9eaeb;
+}
+
+.nav-menu{
+    background-color: white;
+}
+
+.container-op{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-perfil{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 1px 10px 1px 1px ;
+}
+
+.container-perfil:hover{
+    background-color: rgba(90, 86, 86, 0.171);
+    border-radius: 5px;
+    border-right: 1px solid rgba(47, 47, 47, 0.616);
+}
+
+.img-perfil{
+    width:24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.txt-name{
+    color: white;
+}
+
+.link-pg-ini{
+    color:white;
+    text-decoration: none;
+    border-right: 1px solid rgba(47, 47, 47, 0.616);
+    padding: 5px 10px;
+}
+
+.link-pg-ini:hover{
+    background-color: rgba(90, 86, 86, 0.171);
+    border-radius: 5px;
+}
+
+.btn-create{
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border-right: 1px solid rgba(47, 47, 47, 0.616);
+    border-left: none;
+    border-top: none;
+    border-bottom:none;
+    padding: 5px 10px;
+}
+
+.btn-create:hover{
+    background-color: rgba(90, 86, 86, 0.171);
+    border-radius: 5px;
+}
+
+.container-icons{
+    display: flex;
+    border-right: 1px solid rgba(47, 47, 47, 0.616);
+    padding: 0 10px;
+}
+
+.btn-amizade{
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    margin-right: 8px;
+}
+
+.btn-messenger{
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    margin-right: 8px;
+
+}
+
+.btn-bell{
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
