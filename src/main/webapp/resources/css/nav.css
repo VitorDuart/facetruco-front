@@ -75,6 +75,7 @@
     align-items: center;
     text-decoration: none;
     padding: 1px 10px 1px 1px ;
+    border-right: 1px solid rgba(47, 47, 47, 0.616);
 }
 
 .container-perfil:hover{
@@ -132,7 +133,7 @@
     height: 24px;
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    margin-right: 8px;
+    margin-right: 15px;
 }
 
 .btn-messenger{
@@ -140,7 +141,7 @@
     height: 24px;
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    margin-right: 8px;
+    margin-right: 15px;
 
 }
 
@@ -151,3 +152,19 @@
     background-color: rgba(0, 0, 0, 0);
 }
 
+
+.btn-help{
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+.btn-seta{
+    width: 12px;
+    height: 12px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
