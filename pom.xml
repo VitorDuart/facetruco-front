@@ -18,20 +18,25 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
+<!-- 
+<dependencyManagement>
+   <dependencies>
+    <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>bom</artifactId>
+      <version>2.5.10</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+   </dependencies>
+  </dependencyManagement> -->
+
 
   <dependencies>
-    
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
       <version>7.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -48,8 +53,23 @@
       <groupId>io.jsonwebtoken</groupId>
       <artifactId>jjwt</artifactId>
       <version>0.7.0</version>
-   </dependency>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>software.amazon.awssdk</groupId>
+      <artifactId>s3</artifactId>
+    </dependency> -->
+
+    <dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk</artifactId>
+    <version>1.11.683</version>
+</dependency>
+
+
   </dependencies>
+
+
 
   <build>
     <finalName>facetruco-front</finalName>
@@ -94,7 +114,7 @@
         <executions>
           <execution>
             <configuration>
-              <server>/home/vitor/glassfish5</server>
+              <server>/home/ewerton/glassfish4</server>
               <domain>domain1</domain>
               <war>${project.basedir}/target/facetruco-front.war</war>
             </configuration>

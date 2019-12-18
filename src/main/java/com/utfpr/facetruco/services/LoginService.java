@@ -16,9 +16,7 @@ import com.sun.jersey.api.client.ClientResponse;
  */
 
 public class LoginService{
-    //private final String url = "http://192.168.30.105:8080"; //Servidor joão
-    private final String URI_BACKEND = "http://10.0.69.170:8080"; // Servidor joão utf
-    //private String url = "http://10.0.70.126:8080"; // Meu servidor
+    private final String URI_BACKEND = Api.getURIBACKEND();
     
     private Client client;
 
