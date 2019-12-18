@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import com.utfpr.facetruco.pojo.Login;
 import com.utfpr.facetruco.pojo.UserLogged;
 import com.utfpr.facetruco.services.LoginService;
+import com.utfpr.facetruco.services.S3Service;
+import com.utfpr.facetruco.util.Token;
 
 
 /**
@@ -19,17 +21,17 @@ public class LoginBean {
     @Inject
     private Login log;
     private UserLogged user;
+    private String url;
     
     @Inject
     private LoginService logService;
 
     public String loginho(){
-        this.user = this.logService.login(log);
-
+        this.user = this.logService.login(log);        
         if (this.user == null)
             return "index"; 
-
-        return "feeds";   
+        return "feeds";
+        // return "index";   
     }
 
     
@@ -43,5 +45,15 @@ public class LoginBean {
 
     public LoginService getLogService() {return this.logService;}
     public void setLogService(LoginService logService) {this.logService = logService;}
+
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
 
 }
