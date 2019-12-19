@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import com.utfpr.facetruco.pojo.Login;
 import com.utfpr.facetruco.pojo.UserLogged;
 import com.utfpr.facetruco.services.LoginService;
+import com.utfpr.facetruco.util.SessionUtil;
 
 
 /**
@@ -24,9 +25,13 @@ public class LoginBean {
     private LoginService logService;
 
     public String loginho(){
-        this.user = this.logService.login(log);        
+        this.user = this.logService.login(log);
         if (this.user == null)
             return "index"; 
+        SessionUtil.setParam("token", user.getToken());
+        SessionUtil.setParam("username", user.getUsername());
+
+        System.out.println("AQUI: " + SessionUtil.getParam("token"));
         return "feeds";
     }
 

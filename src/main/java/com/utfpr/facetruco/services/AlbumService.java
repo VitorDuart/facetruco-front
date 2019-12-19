@@ -11,11 +11,12 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.utfpr.facetruco.pojo.Album;
 import com.utfpr.facetruco.pojo.Colaborador;
+import com.utfpr.facetruco.util.SessionUtil;
 
 public class AlbumService{
     private final String URI_BACKEND = Api.getURIBACKEND();
     private Client client;
-    private final String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc291emEifQ.e7PRgFUYxI5e3CSAIwIgMfepR1QpXnUxwPbEipPoqmF8LbsvutcDeuDIkaNdKmlSAfKUZtCaP2gD0eolcxDNXA";
+    private final String token = (String) SessionUtil.getParam("token");
 
     public AlbumService(){ this.client = new Client();}
 

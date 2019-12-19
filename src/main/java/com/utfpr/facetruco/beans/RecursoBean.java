@@ -39,18 +39,12 @@ public class RecursoBean {
         r.setUsername("eduarte");
         r.setTipo(file.getContentType());
         r.setPostId(new Long("2"));
-        Boolean res = rs.store(r);/* rs.store(new Recurso(
-            "jsouza",
-            s3.getObjectURL(nameFile),
-            file.getContentType(),
-            new Long("4"))
-        ); */
+        Boolean res = rs.store(r);
         if(!res)
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Não foi possível carregar media",""));
     }
 
     public void getRecursosPost(){
-        FacesContext context = FacesContext.getCurrentInstance();
         RecursoService rs = new RecursoService();
         List<Recurso> recursos = rs.listRecursos(new Long("2"), "postagem");
         this.recursos = recursos;
