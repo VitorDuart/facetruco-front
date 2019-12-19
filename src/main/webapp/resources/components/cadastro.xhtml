@@ -16,22 +16,22 @@
         
         <h:form class="form-cadastro">
             <div class="nome-sobrenome">
-                <h:inputText class="input-nome-sobrenome" value="">
+                <h:inputText class="input-nome-sobrenome" value="#{userBean.user.nome}">
                         <f:passThroughAttribute name="placeholder"
                             value="Nome" />
                 </h:inputText>
-                <h:inputText class="input-nome-sobrenome" value="">
+                <h:inputText class="input-nome-sobrenome" value="#{userBean.user.sobrenome}">
                     <f:passThroughAttribute name="placeholder"
                         value="Sobrenome" />
                 </h:inputText>
             </div>
                 
-            <h:inputText class="input-email-senha" value="">
+            <h:inputText class="input-email-senha" value="#{userBean.user.email}">
                 <f:passThroughAttribute name="placeholder"
                     value="Celular ou email" />
             </h:inputText>
-            <h:inputSecret class="input-email-senha" value="">
-                        <f:passThroughAttribute name="placeholder" 
+            <h:inputSecret class="input-email-senha" value="#{userBean.user.senha}">
+                        <f:passThroughAttribute name="placeholder"  
                         value="Nova senha" />
             </h:inputSecret>
     
@@ -40,20 +40,18 @@
                 <h:selectOneMenu class="select-date" value="#{userBean.dia}">
                     <f:selectItems value="#{userBean.dias}" />
                 </h:selectOneMenu>
-                <h:selectOneMenu class="select-date" value="">
-                    <f:selectItem itemValue="Jan" />
-                    <f:selectItem itemValue="Fev" />
-                    <f:selectItem itemValue="Mar" />
+                <h:selectOneMenu class="select-date" value="#{userBean.mes}" converter="mesConverter">
+                    <f:selectItem value="#{userBean.meses}" var="mes" itemValue="#{mes}" />
                 </h:selectOneMenu>
-                <h:selectOneMenu class="select-date" value="">
+                <h:selectOneMenu class="select-date" value="#{userBean.dia}">
                     <f:selectItem itemValue="2017" />
                     <f:selectItem itemValue="2018" />
                     <f:selectItem itemValue="2019" />
-                </h:selectOneMenu>
+                </h:selectOneMenu>  
             </div>
             <p class="p-genero" >Gênero</p>
             <div class="container-genero">
-                <h:selectOneRadio value="#{login.log.email}">
+                <h:selectOneRadio value="#{userBean.user.genero}">
                     <f:selectItem  itemValue="Feminino" itemLabel="Feminino" />
                     <f:selectItem  itemValue="Masculino" itemLabel="Masculino" />
                 </h:selectOneRadio>
