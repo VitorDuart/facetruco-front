@@ -1,58 +1,75 @@
 package com.utfpr.facetruco.services;
 
+import java.util.List;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import javax.ws.rs.core.MediaType;
+
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
-import com.utfpr.facetruco.pojo.Request;
-import com.utfpr.facetruco.pojo.Amigo;
+import com.utfpr.facetruco.pojo.Reacao;
 
-public class AmigoService{
+
+public class ReacaoService{
     private final String URI_BACKEND = Api.getURIBACKEND();
     private Client client;
     private final String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc291emEifQ.e7PRgFUYxI5e3CSAIwIgMfepR1QpXnUxwPbEipPoqmF8LbsvutcDeuDIkaNdKmlSAfKUZtCaP2gD0eolcxDNXA";
 
-    public AmigoService(){ this.client = new Client();}
+    public ReacaoService(){ this.client = new Client(); }
 
-    public Boolean store(Request request){
+    public Boolean store(Reacao react){
         Gson gson = new Gson();
-        
-        String json = gson.toJson(request);
+
+        String json = gson.toJson(react);
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("amigos")
+            .path("/reacoes")
             .header("Authorization", token)
             .type(MediaType.APPLICATION_JSON)
             .post(ClientResponse.class, json);
         if(response.getStatus() != 201)
             return false;
-        return true;     
+        return true;    
     }
-
-    public Amigo amigosUsuario(String username){
+    
+    public List<Reacao> list(Long id, String target){
         Gson gson = new Gson();
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("amigos/" + username)
+            .path("reaclists/" + id + "/" + target)
             .header("Authorization", token)
-            .type(MediaType.APPLICATION_JSON)
             .get(ClientResponse.class);
-
-        
-        Amigo amigos = gson.fromJson(
-            response.getEntity(String.class),   
-            Amigo.class
+        Type listType = new TypeToken<ArrayList<Reacao>>(){}.getType();
+        List<Reacao> reacoes = gson.fromJson(
+            response.getEntity(String.class),
+            listType
         );
-        return amigos;
+        return reacoes;
     }
 
-    public Boolean delete(String logged, String target){
+    public Long countReacoes(Long id, String target){
+        Gson gson = new Gson();
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("amigos/" + logged + "/" + target)
+            .path("countreacoes/" + id + "/" + target)
+            .header("Authorization", token)
+            .get(ClientResponse.class);
+        Long count = gson.fromJson(
+            response.getEntity(String.class),
+            Long.class
+        );
+        return count;
+    }
+
+    public Boolean delete(Long id){
+        ClientResponse response = this.client
+            .resource(URI_BACKEND)
+            .path("reacoes/" + id)
             .header("Authorization", token)
             .delete(ClientResponse.class);
-        
+       
         if(response.getStatus() != 201)
             return false;
         return true;

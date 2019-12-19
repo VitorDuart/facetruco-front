@@ -55,6 +55,10 @@ public class RecursoBean {
         List<Recurso> recursos = rs.listRecursos(new Long("2"), "postagem");
         this.recursos = recursos;
     }
+
+    public void removerRecurso(){
+        new RecursoService().delete(new Long("5"));
+    }
      
     public Part getFile() {
         return file;

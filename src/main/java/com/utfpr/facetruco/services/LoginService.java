@@ -1,10 +1,6 @@
 package com.utfpr.facetruco.services;
 
-
-
-import javax.inject.Inject;
 import javax.ws.rs.core.MediaType;
-
 import com.google.gson.Gson;
 import com.utfpr.facetruco.pojo.Login;
 import com.utfpr.facetruco.pojo.UserLogged;

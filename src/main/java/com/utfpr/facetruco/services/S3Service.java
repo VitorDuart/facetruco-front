@@ -1,13 +1,13 @@
 package com.utfpr.facetruco.services;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
+// import java.io.ByteArrayInputStream;
+// import java.io.File;
+// import java.io.FileDescriptor;
+// import java.io.FileInputStream;
 import java.net.URL;
 import java.io.InputStream;
 
-import com.amazonaws.services.iotevents.model.Input;
+// import com.amazonaws.services.iotevents.model.Input;
 
 // import software.amazon.awssdk.core.sync.RequestBody;
 // import software.amazon.awssdk.services.s3.S3Client;

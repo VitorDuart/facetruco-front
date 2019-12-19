@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
+import com.utfpr.facetruco.pojo.Marcado;
 import com.utfpr.facetruco.pojo.Postagem;
 
 public class PostagemService{
@@ -46,6 +47,21 @@ public class PostagemService{
             response.getEntity(String.class),   
             listType
         );
+
+        for (Postagem post : posts) {
+            response = this.client
+                .resource(URI_BACKEND)
+                .path("marcados/" + post.getId())
+                .header("Authorization", token)
+                .type(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+            
+            Marcado marcado = gson.fromJson(
+                response.getEntity(String.class),   
+                Marcado.class
+            );
+            post.setMarcados(marcado.getUsuarios());
+        }
         return posts;
     }
 

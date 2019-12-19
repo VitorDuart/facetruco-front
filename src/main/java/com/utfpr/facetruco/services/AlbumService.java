@@ -1,26 +1,30 @@
 package com.utfpr.facetruco.services;
 
+import java.util.List;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import javax.ws.rs.core.MediaType;
+
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
-import com.utfpr.facetruco.pojo.Request;
-import com.utfpr.facetruco.pojo.Amigo;
+import com.utfpr.facetruco.pojo.Album;
+import com.utfpr.facetruco.pojo.Colaborador;
 
-public class AmigoService{
+public class AlbumService{
     private final String URI_BACKEND = Api.getURIBACKEND();
     private Client client;
     private final String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc291emEifQ.e7PRgFUYxI5e3CSAIwIgMfepR1QpXnUxwPbEipPoqmF8LbsvutcDeuDIkaNdKmlSAfKUZtCaP2gD0eolcxDNXA";
 
-    public AmigoService(){ this.client = new Client();}
+    public AlbumService(){ this.client = new Client();}
 
-    public Boolean store(Request request){
+    public Boolean store(Album album){
         Gson gson = new Gson();
-        
-        String json = gson.toJson(request);
+        String json = gson.toJson(album);
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("amigos")
+            .path("albuns")
             .header("Authorization", token)
             .type(MediaType.APPLICATION_JSON)
             .post(ClientResponse.class, json);
@@ -29,27 +33,42 @@ public class AmigoService{
         return true;     
     }
 
-    public Amigo amigosUsuario(String username){
+    public List<Album> albunsUsuario(String username){
         Gson gson = new Gson();
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("amigos/" + username)
+            .path("albuns/" + username)
             .header("Authorization", token)
             .type(MediaType.APPLICATION_JSON)
             .get(ClientResponse.class);
 
-        
-        Amigo amigos = gson.fromJson(
+        Type listType = new TypeToken<ArrayList<Album>>(){}.getType();
+        List<Album> albuns = gson.fromJson(
             response.getEntity(String.class),   
-            Amigo.class
+            listType
         );
-        return amigos;
+
+        for (Album album : albuns) {
+            response = this.client
+                .resource(URI_BACKEND)
+                .path("colabs/" + album.getId())
+                .header("Authorization", token)
+                .type(MediaType.APPLICATION_JSON)
+                .get(ClientResponse.class);
+            
+            Colaborador colab = gson.fromJson(
+                response.getEntity(String.class),   
+                Colaborador.class
+            );
+            album.setColabs(colab.getColabs());
+        }
+        return albuns;
     }
 
-    public Boolean delete(String logged, String target){
+    public Boolean delete(Long id){
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("amigos/" + logged + "/" + target)
+            .path("albuns/" + id)
             .header("Authorization", token)
             .delete(ClientResponse.class);
         

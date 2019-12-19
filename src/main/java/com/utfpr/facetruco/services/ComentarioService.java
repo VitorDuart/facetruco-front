@@ -9,23 +9,23 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
-import com.utfpr.facetruco.pojo.Request;
+import com.utfpr.facetruco.pojo.Comentario;
 
 
-public class SolicitacaoService{
+public class ComentarioService{
     private final String URI_BACKEND = Api.getURIBACKEND();
     private Client client;
     private final String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc291emEifQ.e7PRgFUYxI5e3CSAIwIgMfepR1QpXnUxwPbEipPoqmF8LbsvutcDeuDIkaNdKmlSAfKUZtCaP2gD0eolcxDNXA";
 
-    public SolicitacaoService(){ this.client = new Client();}
+    public ComentarioService(){ this.client = new Client(); }
 
-    public Boolean store(Request request){
+    public Boolean store(Comentario comment){
         Gson gson = new Gson();
-        
-        String json = gson.toJson(request);
+
+        String json = gson.toJson(comment);
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("solicitacoes")
+            .path("comentarios")
             .header("Authorization", token)
             .type(MediaType.APPLICATION_JSON)
             .post(ClientResponse.class, json);
@@ -34,25 +34,39 @@ public class SolicitacaoService{
         return true;    
     }
     
-    public List<Request> list(String username){
+    public List<Comentario> list(Long id, String target){
         Gson gson = new Gson();
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("solicitacoes/" + username)
+            .path("commlists/" + id + "/" + target)
             .header("Authorization", token)
             .get(ClientResponse.class);
-        Type listType = new TypeToken<ArrayList<Request>>(){}.getType();
-        List<Request> requests = gson.fromJson(
+        Type listType = new TypeToken<ArrayList<Comentario>>(){}.getType();
+        List<Comentario> comments = gson.fromJson(
             response.getEntity(String.class),
             listType
         );
-        return requests;
+        return comments;
+    }
+
+    public Long countComentarios(Long id, String target){
+        Gson gson = new Gson();
+        ClientResponse response = this.client
+            .resource(URI_BACKEND)
+            .path("countcomentarios/" + id + "/" + target)
+            .header("Authorization", token)
+            .get(ClientResponse.class);
+        Long count = gson.fromJson(
+            response.getEntity(String.class),
+            Long.class
+        );
+        return count;
     }
 
     public Boolean delete(Long id){
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("solicitacoes/" + id)
+            .path("comentarios/" + id)
             .header("Authorization", token)
             .delete(ClientResponse.class);
        

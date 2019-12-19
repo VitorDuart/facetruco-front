@@ -29,9 +29,17 @@
         </h:panelGrid>
     </h:form>
     
-<ui:repeat value="#{recursoBean.recursos}" var="item">
-        <h:graphicImage value="#{item.url}" />
-</ui:repeat>
+    <ui:repeat value="#{recursoBean.recursos}" var="item">
+            <h:graphicImage value="#{item.url}" />
+    </ui:repeat>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{recursoBean.removerRecurso}" value="carregar">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
  
 </h:body>
 </html>

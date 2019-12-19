@@ -73,5 +73,145 @@
     <ui:repeat value="#{testeBean.postAlbum}" var="item">
             <h:outputText value="#{item.legenda}" /> <br />
     </ui:repeat>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.amigosUsuario()}" value="LISTAR AMIGOS USUARIO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+    <ui:repeat value="#{testeBean.amigos}" var="item">
+            <h:outputText value="#{item}" /> <br />
+    </ui:repeat>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.removerAmigo()}" value="REMOVER AMIIGO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.solicitacoes()}" value="LISTAR SOLICITACOES">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+    <ui:repeat value="#{testeBean.requests}" var="item">
+            <h:outputText value="#{item.target}" /> <br />
+    </ui:repeat>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.removerSolicitacao()}" value="REMOVER SOLICITACÃO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+    
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.criarComentario()}" value="CRIAR COMENTARIO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form> 
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.listarComentarios()}" value="LISTAR COMENTARIOS">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form> 
+    <ui:repeat value="#{testeBean.comments}" var="item">
+            <h:outputText value="#{item.comentario}" /> <br />
+    </ui:repeat>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.removerComentario()}" value="REMOVER COMENTARIO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.countComentarios()}" value="COUNT COMENTARIOS">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form> 
+    <h:outputText value="#{testeBean.countC}" /> <br />
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.criarReacao()}" value="CRIAR REACAO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.listarReacoes()}" value="LISTAR REAÇÕES">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form> 
+    <ui:repeat value="#{testeBean.reacoes}" var="item">
+            <h:outputText value="#{item.reacao}" /> <br />
+    </ui:repeat>
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.countReacoes()}" value="COUNT REACÃO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form> 
+    <h:outputText value="#{testeBean.numReacoes}" /> <br />
+
+    <h:form enctype="multipart/form-data">
+        <h:panelGrid columns="3">
+            <h:commandButton action="#{testeBean.removerReacao()}" value="REMOVER REACAO">
+                <f:ajax execute="@form" render="@all" />
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+
+    <h:form enctype="multipart/form-data">
+    <h:panelGrid columns="3">
+        <h:commandButton action="#{testeBean.criarAlbum()}" value="CRIAR ALBUM">
+            <f:ajax execute="@form" render="@all" />
+        </h:commandButton>
+    </h:panelGrid>
+</h:form>
+
+<h:form enctype="multipart/form-data">
+    <h:panelGrid columns="3">
+        <h:commandButton action="#{testeBean.listarAlbuns()}" value="LISTAR ALBUM">
+            <f:ajax execute="@form" render="@all" />
+        </h:commandButton>
+    </h:panelGrid>
+</h:form> 
+<ui:repeat value="#{testeBean.albuns}" var="item">
+        <h:outputText value="#{item.descricao}" /> <br />
+        <ui:repeat value="#{item.colabs}" var="i">
+            <h:outputText value="#{i}" /> <br />
+        </ui:repeat>
+</ui:repeat>
+
+<h:form enctype="multipart/form-data">
+    <h:panelGrid columns="3">
+        <h:commandButton action="#{testeBean.removerAlbum()}" value="REMOVER ALBUM">
+            <f:ajax execute="@form" render="@all" />
+        </h:commandButton>
+    </h:panelGrid>
+</h:form> 
 </h:body>
 </html>
