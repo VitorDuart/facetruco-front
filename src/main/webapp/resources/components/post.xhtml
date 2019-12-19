@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"	
+    xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+<composite:interface></composite:interface>
+<composite:implementation>
+    <div class="container-card">
+        <div class="container-who">
+            <h:graphicImage class="img-perfil-post" library="images" name="perfil.jpg" />
+            <div class="container-user-date">
+                <h:link class="link-user-post" value="Vitor" outcome="perfil" />
+                <div class="container-date">
+                    <h:outputText class="out-hora" value="3h" />
+                    <span class="span-dot">.</span>
+                    <h:graphicImage class="img-globo" library="images" name="globo.png" />
+                </div>
+            </div>
+        </div>
+        <div class="container-conteudo">
+            <p>Era uma vez...</p>
+        </div>
+        <div class="container-action">
+            <div class="container-qtd-reac">
+                <div class="container-reacao" >
+                    <h:graphicImage class="img-reacao" library="images" name="like.png"/>
+                    <h:outputText class="out-qtd-pess" value="32 pessoas" />
+                </div>
+                <h:outputText class="out-qtd-cc" value="1 comentario" />
+            </div>
+            <div class="container-ccc">
+                <h:form>
+                    <h:commandlink action="#{reactionBean.reac('like')}">
+                            <h:graphicImage class="img-reacao" library="images" name="like.png"/>
+                            <span>Curtir</span>
+                    </h:commandlink>
+                </h:form>
+            </div>
+        </div>
+        <div class="container-comment">
+            <div>
+                <h:graphicImage class="img-reacao" />
+                <h:inputText class="input-coment">
+                        <f:passThroughAttribute name="placeholder"
+                            value="Escreva um comentário..." />
+                </h:inputText>
+            </div>
+        </div>
+    </div>
+</composite:implementation>
+</html>

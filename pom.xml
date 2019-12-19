@@ -61,14 +61,13 @@
     </dependency> -->
 
     <dependency>
-    <groupId>com.amazonaws</groupId>
-    <artifactId>aws-java-sdk</artifactId>
-    <version>1.11.683</version>
-</dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk</artifactId>
+      <version>1.11.683</version>
+    </dependency>
 
 
   </dependencies>
-
 
 
   <build>
@@ -114,7 +113,7 @@
         <executions>
           <execution>
             <configuration>
-              <server>/home/ewerton/glassfish4</server>
+              <server>/home/vitor/glassfish4</server>
               <domain>domain1</domain>
               <war>${project.basedir}/target/facetruco-front.war</war>
             </configuration>

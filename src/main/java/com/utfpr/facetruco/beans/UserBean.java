@@ -102,6 +102,7 @@ public class UserBean {
     }
 
 
+<<<<<<< HEAD
     public String getAno() {
         return this.ano;
     }
@@ -119,3 +120,6 @@ public class UserBean {
     }
 
 }
+=======
+}
+>>>>>>> acca5e372d7f14b438d9f54c4c373229113d4123
