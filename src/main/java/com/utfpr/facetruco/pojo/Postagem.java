@@ -1,5 +1,6 @@
 package com.utfpr.facetruco.pojo;
 
+import java.util.List;
 
 public class Postagem{
     private Long id;
@@ -8,6 +9,7 @@ public class Postagem{
     private String sentimento;
     private String username;
     private String timestamp;
+    private List<String> marcados;
 
     public Postagem() {}
 
@@ -58,4 +60,13 @@ public class Postagem{
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+    public List<String> getMarcados() {
+        return this.marcados;
+    }
+
+    public void setMarcados(List<String> marcados) {
+        this.marcados = marcados;
+    }
+
 }

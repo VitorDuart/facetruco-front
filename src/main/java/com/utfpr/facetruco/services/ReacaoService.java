@@ -9,89 +9,68 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
-import com.utfpr.facetruco.pojo.Marcado;
-import com.utfpr.facetruco.pojo.Postagem;
+import com.utfpr.facetruco.pojo.Reacao;
 import com.utfpr.facetruco.util.SessionUtil;
 
-public class PostagemService{
+
+public class ReacaoService{
     private final String URI_BACKEND = Api.getURIBACKEND();
     private Client client;
     private final String token = (String) SessionUtil.getParam("token");
 
-    public PostagemService(){ this.client = new Client();}
+    public ReacaoService(){ this.client = new Client(); }
 
-    public Boolean store(Postagem post){
+    public Boolean store(Reacao react){
         Gson gson = new Gson();
-        String json = gson.toJson(post);
+
+        String json = gson.toJson(react);
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("postagens")
+            .path("/reacoes")
             .header("Authorization", token)
             .type(MediaType.APPLICATION_JSON)
             .post(ClientResponse.class, json);
         if(response.getStatus() != 201)
             return false;
-        return true;     
+        return true;    
     }
-
-    public List<Postagem> postagensUsuario(String username){
+    
+    public List<Reacao> list(Long id, String target){
         Gson gson = new Gson();
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("postusuarios/" + username)
+            .path("reaclists/" + id + "/" + target)
             .header("Authorization", token)
-            .type(MediaType.APPLICATION_JSON)
             .get(ClientResponse.class);
-
-        Type listType = new TypeToken<ArrayList<Postagem>>(){}.getType();
-        List<Postagem> posts = gson.fromJson(
-            response.getEntity(String.class),   
+        Type listType = new TypeToken<ArrayList<Reacao>>(){}.getType();
+        List<Reacao> reacoes = gson.fromJson(
+            response.getEntity(String.class),
             listType
         );
-
-        for (Postagem post : posts) {
-            response = this.client
-                .resource(URI_BACKEND)
-                .path("marcados/" + post.getId())
-                .header("Authorization", token)
-                .type(MediaType.APPLICATION_JSON)
-                .get(ClientResponse.class);
-            
-            Marcado marcado = gson.fromJson(
-                response.getEntity(String.class),   
-                Marcado.class
-            );
-            post.setMarcados(marcado.getUsuarios());
-        }
-        return posts;
+        return reacoes;
     }
 
-
-    public List<Postagem> postagensAlbum(Long id){
+    public Long countReacoes(Long id, String target){
         Gson gson = new Gson();
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("postalbuns/" + id)
+            .path("countreacoes/" + id + "/" + target)
             .header("Authorization", token)
-            .type(MediaType.APPLICATION_JSON)
             .get(ClientResponse.class);
-
-        Type listType = new TypeToken<ArrayList<Postagem>>(){}.getType();
-        List<Postagem> posts = gson.fromJson(
-            response.getEntity(String.class),   
-            listType
+        Long count = gson.fromJson(
+            response.getEntity(String.class),
+            Long.class
         );
-
-        return posts;
+        return count;
     }
 
     public Boolean delete(Long id){
         ClientResponse response = this.client
             .resource(URI_BACKEND)
-            .path("postagens/" + id)
+            .path("reacoes/" + id)
             .header("Authorization", token)
             .delete(ClientResponse.class);
-        
+       
         if(response.getStatus() != 201)
             return false;
         return true;
