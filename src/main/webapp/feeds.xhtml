@@ -9,6 +9,7 @@
       <title>FaceTruco</title>
       <h:outputStylesheet library="css" name="nav.css" />
       <h:outputStylesheet library="css" name="feeds.css" />
+      <h:outputStylesheet library="css" name="post.css" />
 </h:head>
 <h:body>
     <nav class="container-bar">
@@ -18,12 +19,13 @@
         <main class="container-content">
             <section class="menu">fdfdf</section>
             <section class="feeds">
-                Feeds
+                <comp:post />
             </section>
             <section class="geral">Geral</section>
         </main>
         <section id="chat" class="container-chat">Chat</section>        
     </div>
+    
     <h:outputScript library="js" name="nave.js" />    
 </h:body>
 </html>

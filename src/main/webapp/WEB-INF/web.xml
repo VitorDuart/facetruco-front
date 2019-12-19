@@ -21,8 +21,8 @@
     <!-- <filter>
         <filter-name>jwtFilter</filter-name>
         <filter-class>com.utfpr.facetruco.filter.JWTFilter</filter-class>
-    </filter>
+    </filter> -->
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
-    </welcome-file-list> -->
+    </welcome-file-list> 
 </web-app>
