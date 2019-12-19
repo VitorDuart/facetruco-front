@@ -24,19 +24,37 @@ public class UserBean {
     
     private List<String> dias;
     private String dia;
-
     private Mes mes;
     private List<Mes> meses;
+    private String ano;
+    private List<String> anos;
 
     public UserBean(){
         dia = "1";
+        ano = "2000";
         dias = new ArrayList<>();
+        anos = new ArrayList<>();
         for(int i = 1; i < 32; i++){
             dias.add(Integer.toString(i));
         }
+
+        for(int i = 1960; i < 2020; i++){
+            anos.add(Integer.toString(i));
+        }
+
         meses = new ArrayList<>();
         meses.add(new Mes(1, "jan"));
         meses.add(new Mes(2, "fev"));
+        meses.add(new Mes(3, "mar"));
+        meses.add(new Mes(4, "abr"));
+        meses.add(new Mes(5, "mai"));
+        meses.add(new Mes(6, "jun"));
+        meses.add(new Mes(7, "jul"));
+        meses.add(new Mes(8, "ago"));
+        meses.add(new Mes(9, "set"));
+        meses.add(new Mes(10, "out"));
+        meses.add(new Mes(11, "nov"));
+        meses.add(new Mes(12, "dez"));
     }
 
     public String store(){
@@ -83,5 +101,21 @@ public class UserBean {
         return null;
     }
 
+
+    public String getAno() {
+        return this.ano;
+    }
+
+    public void setAno(String ano) {
+        this.ano = ano;
+    }
+
+    public List<String> getAnos() {
+        return this.anos;
+    }
+
+    public void setAnos(List<String> anos) {
+        this.anos = anos;
+    }
 
 }

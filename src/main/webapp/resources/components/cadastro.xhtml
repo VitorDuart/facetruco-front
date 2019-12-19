@@ -41,12 +41,11 @@
                     <f:selectItems value="#{userBean.dias}" />
                 </h:selectOneMenu>
                 <h:selectOneMenu class="select-date" value="#{userBean.mes}" converter="mesConverter">
-                    <f:selectItem value="#{userBean.meses}" var="mes" itemValue="#{mes}" />
+                    <f:selectItems value="#{userBean.meses}" var="mes" itemValue="#{mes}"
+                    itemLabel="#{mes.mes}" />
                 </h:selectOneMenu>
-                <h:selectOneMenu class="select-date" value="#{userBean.dia}">
-                    <f:selectItem itemValue="2017" />
-                    <f:selectItem itemValue="2018" />
-                    <f:selectItem itemValue="2019" />
+                <h:selectOneMenu class="select-date" value="#{userBean.ano}">
+                    <f:selectItems value="#{userBean.anos}" />
                 </h:selectOneMenu>  
             </div>
             <p class="p-genero" >Gênero</p>
